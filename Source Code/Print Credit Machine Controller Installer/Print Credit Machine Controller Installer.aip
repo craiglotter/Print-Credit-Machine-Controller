@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="ARPHELPTELEPHONE" Value="0833085018"/>
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="ProductCode" Value="{0D2E24DE-1BFE-46EE-A328-0F95A7D9A5BF}"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon.exe"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://www.commerce.uct.ac.za/CommerceIT"/>
+    <ROW Property="DialogBitmap" Value="style7green_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Commerce I.T."/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Print Credit Machine Controller"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPCONTACT" Value="Craig Lotter"/>
+    <ROW Property="BannerBitmap" Value="style7green_banner.jpg"/>
+    <ROW Property="ProductVersion" Value="1.0.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{6B7E1E6E-0F03-4527-B85A-5D8056285251}"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="StartupFolder" Directory_Parent="TARGETDIR" DefaultDir="Startu~1|StartupFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="Log_Template.mdb" ComponentId="{F450083D-5923-4360-96BC-3D798309F7B0}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Log_Template.mdb" FullKeyPath="TARGETDIR"/>
+    <ROW Component="Print_Credit_Machine_Controller.exe" ComponentId="{B3D5B86B-6BA8-478B-9C7C-567EBA5BAE8B}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Print_Credit_Machine_Controller.exe" FullKeyPath="TARGETDIR\Print Credit Machine Controller.exe"/>
+    <ROW Component="Transaction_XML_Generator.exe" ComponentId="{93967838-E4E7-40B8-8300-7B8F04D2473F}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Transaction_XML_Generator.exe" FullKeyPath="TARGETDIR\Transaction XML Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="Print_Credit_Machine_Controller.exe Log_Template.mdb Transaction_XML_Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Log_Template.mdb" Component_="Log_Template.mdb" FileName="Log_Te~1.mdb|Log_Template.mdb" Version="" Language="" Attributes="" SourcePath="..\Print Credit Machine Controller\Required Files\Log_Template.mdb" SelfReg="false"/>
+    <ROW File="Print_Credit_Machine_Controller.exe" Component_="Print_Credit_Machine_Controller.exe" FileName="PrintC~1.exe|Print Credit Machine Controller.exe" Version="" Language="" Attributes="" SourcePath="..\Print Credit Machine Controller\obj\Release\Print Credit Machine Controller.exe" SelfReg="false"/>
+    <ROW File="Transaction_XML_Generator.exe" Component_="Transaction_XML_Generator.exe" FileName="Transa~1.exe|Transaction XML Generator.exe" Version="" Language="" Attributes="" SourcePath="..\Print Credit Machine Controller\Required Files\Transaction XML Generator.exe" SelfReg="false"/>
+    <ROW File="pathtest.txt" Component_="Log_Template.mdb" FileName="pathtest.txt" Version="" Language="" Attributes="" SourcePath="..\Print Credit Machine Controller\Required Files\pathtest.txt" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Source="" Target="A higher version of [ProductName] is installed."/>
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#Print_Credit_Machine_Controller.exe]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+    <ROW UpgradeCode="UpgradeCode" VersionMin="ProductVersion" VersionMax="" Language="" Attributes="2" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Print_Credit_Machine_Controller_1.0" Directory_="SHORTCUTDIR" Name="PrintC~1.0|Print Credit Machine Controller 1.0" Component_="Log_Template.mdb" Target="[TARGETDIR]Print Credit Machine Controller.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Print_Credit_Machine_Controller_1.0_1" Directory_="StartupFolder" Name="PrintC~1.0|Print Credit Machine Controller 1.0" Component_="Log_Template.mdb" Target="[TARGETDIR]Print Credit Machine Controller.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_Print_Credit_Machine_Controller" Directory_="SHORTCUTDIR" Name="Uninst~1|Uninstall Print Credit Machine Controller" Component_="Log_Template.mdb" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon.exe" SourcePath="..\Print Credit Machine Controller\Images\Printer_Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="style7green_banner.jpg" SourcePath="&lt;style7green-banner.jpg&gt;"/>
+    <ROW Name="style7green_dialog.jpg" SourcePath="&lt;style7green-dialog.jpg&gt;"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW DisplayName=".NET Framework" SetupFileUrl="http://www.commerce.uct.ac.za/Commerce_IT/Support/Utilities/Files/DotNetFramework/dotnetfx.exe" Location="1" ExactSize="24265736" TargetOS="1" SearchType="1" SearchString="HKLM\Software" VerMin="1.0" VerMax="1.1" ComLine="dotnetfx.exe /Q /T:%WINDIR%"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="6"/>
+    <ATTRIBUTE name="PackageName" value="Release\Print Credit Machine Controller Installer"/>
+    <ATTRIBUTE name="IconPath" value="..\Print Credit Machine Controller\Printer_Icon.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
